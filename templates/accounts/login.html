@@ -1,0 +1,79 @@
+<!-- templates/accounts/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+  .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  form {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .form-group {
+      margin-bottom: 15px;
+  }
+  .form-group label {
+      display: block;
+      margin-bottom: 5px;
+  }
+  .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  .btn-primary {
+      display: block;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+  }
+  .btn-primary:hover {
+      background-color: #45a049;
+  }
+  .signup-link {
+      text-align: center;
+      margin-top: 10px;
+  }
+  .signup-link a {
+      color: #4CAF50;
+      text-decoration: none;
+  }
+  .signup-link a:hover {
+      text-decoration: underline;
+  }
+  body {
+    background-image: url("/home/fundraiser/gardenvet/mediafiles/12.png");
+  }
+</style>
+
+<div class="container mt-5">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <div class="signup-link">
+        <p>Don't have an account? <a href="{% url 'accounts:register' %}">Sign up here</a></p>
+        <p>Have you Forgotten your Password? <a href="{% url 'password_reset' %}">Reset Password</a></p>
+    </div>
+</div>
+{% endblock %}

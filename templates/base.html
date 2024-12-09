@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Online Vet System{% endblock %}</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+      /* General Styles */
+      body {
+          font-family: Arial, sans-serif;
+          color: #333;
+      }
+      header {
+          background-color: #4CAF50;
+          color: white;
+          padding: 1em 0;
+          text-align: center;
+      }
+      nav ul {
+          list-style-type: none;
+          padding: 0;
+      }
+      nav ul li {
+          display: inline;
+          margin-right: 10px;
+      }
+      nav ul li a {
+          color: white;
+          text-decoration: none;
+          padding: 5px 10px;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+      }
+      nav ul li a:hover {
+          background-color: #45a049;
+      }
+      footer {
+          background-color: #f1f1f1;
+          color: #333;
+          padding: 1em 0;
+          text-align: center;
+      }
+      .container {
+          max-width: 960px;
+          margin: 0 auto;
+          padding: 20px;
+      }
+      h1 {
+          color: #4CAF50;
+      }
+      .form-group {
+          margin-bottom: 1em;
+      }
+      .form-group label {
+          display: block;
+          margin-bottom: .5em;
+      }
+      .form-group input,
+      .form-group textarea {
+          width: 100%;
+          padding: .5em;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+      .btn-primary {
+          background-color: #4CAF50;
+          border-color: #4CAF50;
+      }
+      .btn-primary:hover {
+          background-color: #45a049;
+          border-color: #45a049;
+      }
+    </style>
+ <header class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="{% url 'home' %}">Vet Management System</a>
+      <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'product_list' %}">Products</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Our Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About Us</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'appointments:appointment_form' %}">Book appointment</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login here</a></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'appointments:generate_report' %}">Generate Report<a/></li>
+              <li class="nav-item"><a class="nav-link" href="{% url 'payment_page' %}"> Pay for products here</a></li>  
+            
+          </ul>
+      </div>
+  </nav>
+</header>
+
+<div class="welcome-section">
+ 
+
+  <h1>Welcome to Online Vet Management Booking System</h1>
+
+
+  <p>Your one-stop shop for veterinary services. Karibu nyumbani!</p>
+</div>
+{% if user.is_authenticated %}
+  <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+  <a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Online Vet Management System. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

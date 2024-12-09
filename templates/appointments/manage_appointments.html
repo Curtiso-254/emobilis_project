@@ -1,0 +1,37 @@
+<!-- appointments/templates/appointments/manage.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Manage Appointments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Client</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for appointment in appointments %}
+    <tr>
+      <td>{{ appointment.service.name }}</td>
+      <td>{{ appointment.date }}</td>
+      <td>{{ appointment.time_slot }}</td>
+      <td>{{ appointment.client.username }}</td>
+      <td>{{ appointment.status }}</td>
+      <td>
+        <a href="{% url 'appointments:approve_appointment' appointment.id %}">Approve</a> |
+        <a href="{% url 'appointments:cancel_appointment' appointment.id %}">Cancel</a> |
+        <a href="{% url 'appointments:delete_appointment' appointment.id %}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{% url 'appointments:generate_report' %}" class="btn btn-primary">Generate Report</a>
+
+{% endblock %}

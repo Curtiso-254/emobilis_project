@@ -1,0 +1,62 @@
+<!-- templates/pages/about.html -->
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<style>
+  .container {
+    max-width: 800px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: #fff; /* Optional: Set a background color */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  }
+
+  h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  p {
+    line-height: 1.6; /* Improve line spacing for readability */
+    color: #555;
+    text-align: justify;
+  }
+
+  .about-section {
+    margin-top: 20px;
+  }
+
+  .about-section h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+
+  .about-section p {
+    margin-bottom: 15px;
+  }
+</style>
+
+<div class="container mt-5">
+  <h2>About Us</h2>
+  <p>Welcome to GardenVet! We are dedicated to providing the highest quality veterinary care for your pets. Our team of experienced veterinarians and staff are committed to ensuring your pets receive the best care possible. Below, you can learn more about our mission, values, and the services we offer.</p>
+  
+  <div class="about-section">
+    <h3>Our Mission</h3>
+    <p>Our mission is to provide compassionate and comprehensive veterinary care to enhance the health and well-being of pets and their families. We strive to offer the best medical care and customer service in a warm and welcoming environment.</p>
+  </div>
+
+  <div class="about-section">
+    <h3>Our Values</h3>
+    <p>At GardenVet, we believe in treating every pet with kindness and respect. Our core values include integrity, excellence, and teamwork. We are dedicated to continuous learning and improvement to provide the best care for our patients.</p>
+  </div>
+
+  <div class="about-section">
+    <h3>Our Services</h3>
+    <p>We offer a wide range of veterinary services, including general check-ups, surgical procedures, dental care, and emergency services. Our state-of-the-art facilities are equipped to handle all of your pet's health needs.</p>
+  </div>
+</div>
+{% endblock %}

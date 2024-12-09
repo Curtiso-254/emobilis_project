@@ -1,0 +1,114 @@
+<!-- templates/appointments/appointment_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}My Appointments{% endblock %}
+
+{% block content %}
+<style>
+  .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+  }
+  table, th, td {
+      border: 1px solid #ccc;
+  }
+  th, td {
+      padding: 10px;
+      text-align: left;
+  }
+  th {
+      background-color: #f2f2f2;
+  }
+  tr:nth-child(even) {
+      background-color: #f9f9f9;
+  }
+  .btn {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+  }
+  .btn-edit {
+      background-color: #4CAF50;
+      color: white;
+  }
+  .btn-edit:hover {
+      background-color: #45a049;
+  }
+  .btn-delete {
+      background-color: #f44336;
+      color: white;
+  }
+  .btn-delete:hover {
+      background-color: #e53935;
+  }
+  .btn-add {
+      display: block;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+  }
+  .btn-add:hover {
+      background-color: #45a049;
+  }
+</style>
+
+<div class="container mt-5">
+  <h2>My Appointments</h2>
+  {% if appointments %}
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Actions</th>
+          <th>Vets</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for appointment in appointments %}
+          <tr>
+            <td>{{ appointment.service.name }}</td>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.time_slot }}</td>
+            <td>
+              <a href="{% url 'appointments:edit_appointment' appointment.id %}" class="btn btn-edit">Edit</a>
+              <a href="{% url 'appointments:delete_appointment' appointment.id %}" class="btn btn-delete">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No appointments scheduled yet.</p>
+  {% endif %}
+  <a href="{% url 'appointments:appointment_form' %}" class="btn-add">Schedule New Appointment</a>
+</div>
+{% endblock %}
+
+
+{% if user.is_authenticated %}
+  <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+  <a href="{% url 'login' %}">Login</a>
+{% endif %}

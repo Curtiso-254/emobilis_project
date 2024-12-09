@@ -1,0 +1,74 @@
+<!-- templates/appointments/book_appointment.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .appointment-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+      text-align: center;
+      color: #4CAF50;
+      margin-bottom: 20px;
+      font-size: 2em;
+  }
+
+  form {
+      margin-top: 20px;
+  }
+
+  form .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: #fff;
+      cursor: pointer;
+      text-align: center;
+  }
+
+  form .btn:hover {
+      background-color: #0056b3;
+  }
+
+  p {
+      text-align: center;
+      color: #ff4d4d;
+      font-size: 1.1em;
+      margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+      .appointment-container {
+          padding: 15px;
+      }
+
+      h2 {
+          font-size: 1.8em;
+      }
+  }
+</style>
+
+<div class="appointment-container">
+    <h2>Book Appointment with Dr. {{ vet.user.first_name }} {{ vet.user.last_name }}</h2>
+
+    {% if vet.is_available %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+    </form>
+    {% else %}
+    <p>Sorry, this veterinarian is currently unavailable.</p>
+    {% endif %}
+</div>
+{% endblock %}

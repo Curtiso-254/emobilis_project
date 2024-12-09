@@ -1,0 +1,94 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+  .header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+  }
+  .navbar {
+      display: flex;
+      justify-content: center;
+  }
+  .navbar-brand {
+      font-size: 1.5em;
+      font-weight: bold;
+  }
+  .navbar-nav {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+  }
+  .nav-item {
+      margin: 0 15px;
+  }
+  .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+  }
+  .nav-link:hover {
+      background-color: #45a049;
+  }
+  .welcome-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+  }
+  .welcome-section h1 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+  }
+  .welcome-section p {
+      font-size: 1.2em;
+      color: #555;
+  }
+  .content-section {
+      padding: 50px 20px;
+  }
+  .content-section h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  .content-section p {
+      font-size: 1.1em;
+      color: #333;
+      line-height: 1.6;
+  }
+</style>
+
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">GardenVet</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'product_list' %}">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'post_list' %}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'appointments:appointment_form' %}">Book appointment</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="welcome-section">
+    <h1>Welcome to GardenVet</h1>
+    <p>Your one-stop shop for veterinary services. Karibu nyumbani!</p>
+</div>
+
+<div class="content-section">
+    <h2>About Us</h2>
+    <p>GardenVet is committed to providing the best veterinary services for your pets. Our team of experienced veterinarians and support staff are here to ensure your pets receive the highest quality care.</p>
+</div>
+
+{% endblock %}

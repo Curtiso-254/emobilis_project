@@ -1,0 +1,34 @@
+<!-- templates/appointment.html -->
+{% extends 'base.html' %}
+
+{% block title %}Schedule an Appointment{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Schedule an Appointment</h2>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            {{ form.date.label_tag }}
+            {{ form.date }}
+        </div>
+        <div class="form-group">
+            {{ form.time.label_tag }}
+            {{ form.time }}
+        </div>
+        <div class="form-group">
+            {{ form.message.label_tag }}
+            {{ form.message }}
+        </div>
+        <button type="submit" class="btn btn-primary">Schedule</button>
+    </form>
+</div>
+{% endblock %}

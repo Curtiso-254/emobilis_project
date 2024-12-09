@@ -1,0 +1,30 @@
+.appointment-list {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .appointment-list th,
+  .appointment-list td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* light gray border */
+    text-align: left;
+  }
+  
+  .appointment-list th {
+    background-color: #f7f7f7; /* light gray background */
+    font-weight: bold;
+  }
+  
+  .appointment-list-item:hover {
+    background-color: #f5f5f5; /* light gray hover background */
+  }
+  
+  .appointment-list-item a {
+    display: block;
+    color: #333; /* dark gray text color */
+    text-decoration: none;
+  }
+  
+  .appointment-list-item a:hover {
+    color: #007bff; /* blue text color on hover */
+  }

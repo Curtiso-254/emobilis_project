@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="GET" action="{% url 'product_list' %}">
+    <input type="text" name="query" placeholder="Search products..." value="{{ request.GET.query }}">
+    <button type="submit">Search</button>
+</form>
+<h3>Categories</h3>
+<ul>
+    {% for category in categories %}
+    <li><a href="?category={{ category.name }}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+<h3>Sort by</h3>
+<ul>
+    <li><a href="?sort=name">Name</a></li>
+    <li><a href="?sort=price">Price</a></li>
+</ul>
+<ul>
+    {% for product in products %}
+    <li>
+        <a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a>
+        <p>{{ product.description }}</p>
+        <p>Price: {{ product.price }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

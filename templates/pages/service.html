@@ -1,0 +1,67 @@
+<!-- templates/pages/services.html -->
+{% extends 'base.html' %}
+
+{% block title %}Our Services{% endblock %}
+
+{% block content %}
+<style>
+  .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  p {
+      font-size: 1.2em;
+      color: #555;
+      line-height: 1.6;
+      text-align: justify;
+  }
+  .services-list {
+      margin-top: 30px;
+  }
+  .service-item {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+  }
+  .service-item h3 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+  }
+  .service-item p {
+      margin-bottom: 0;
+  }
+</style>
+
+<div class="container mt-5">
+  <h2>Our Services</h2>
+  <p>Welcome to GardenVet! We offer a wide range of services to meet all your pet's needs. Our team of experienced veterinarians and support staff are dedicated to providing the highest quality care for your beloved pets. Here are some of the services we offer:</p>
+
+  <div class="services-list">
+    <div class="service-item">
+      <h3>General Check-ups</h3>
+      <p>Regular health check-ups are essential to ensure your pet's well-being. Our comprehensive check-ups include a thorough physical examination, vaccinations, and preventive care.</p>
+    </div>
+    <div class="service-item">
+      <h3>Surgical Procedures</h3>
+      <p>We offer a variety of surgical procedures, from routine spaying and neutering to more complex surgeries. Our state-of-the-art surgical suite ensures your pet receives the best possible care.</p>
+    </div>
+    <div class="service-item">
+      <h3>Dental Care</h3>
+      <p>Oral health is crucial for your pet's overall well-being. We provide dental check-ups, cleanings, and treatments to keep your pet's teeth and gums healthy.</p>
+    </div>
+    <div class="service-item">
+      <h3>Emergency Services</h3>
+      <p>Our team is available for emergency care when your pet needs it most. We are equipped to handle a wide range of emergencies and provide prompt, compassionate care.</p>
+    </div>
+    <!-- Add more services as needed -->
+  </div>
+</div>
+{% endblock %}
